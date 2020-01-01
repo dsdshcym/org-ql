@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# * Commit parameters
+
+# See man 5 githooks.
+
+remote="$1"
+url="$2"
+
+read local_ref local_sha remote_ref remote_sha
+
+# * Run tests
+
+if ! make test
+then
+    exit 1
+fi
